@@ -1,0 +1,55 @@
+<div class="newCity">
+    <form #form="ngForm" (submit)="onSubmit()">
+      <input
+        type="text"
+        placeholder="Procure uma nova cidade"
+        name="city"
+        [(ngModel)]="cityName"
+      />
+    </form>
+  </div>
+  <div class="displayer">
+    <div class="container" *ngFor="let weather of weatherData; index as i">
+      <div class="upper-data">
+        <!--     <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp < 15">
+      <img src="../assets/hot.jpg" *ngIf="weatherData.main.temp >= 15"> -->
+        <div class="weather-data">
+          <button (click)="onDelete(i)">X</button>
+          <div class="location">{{ weather.name }}</div>
+          <div class="temperature">
+            {{ weather.main.temp | number : "1.0-0" }}°C
+          </div>
+        </div>
+      </div>
+      <div class="lower-data">
+        <div class="more-info-label">Mais informações</div>
+        <div class="more-info-container">
+          <div class="info-block">
+            <img src="../assets/freezing.png" />
+            <span>Min</span>
+          </div>
+          <div class="info-block-value">
+            {{ weather.main.temp_min | number : "1.0-0" }}°C
+          </div>
+          <div class="info-block">
+            <img src="../assets/hot.png" />
+            <span>Max</span>
+          </div>
+          <div class="info-block-value">
+            {{ weather.main.temp_max | number : "1.0-0" }}
+          </div>
+          <div class="info-block">
+            <img src="../assets/water-droplets.png" />
+            <span>Umidade</span>
+          </div>
+          <div class="info-block-value">{{ weather.main.humidity }}%</div>
+          <div class="info-block">
+            <img src="../assets/wind.png" />
+            <span>Vel. do Vento</span>
+          </div>
+          <div class="info-block-value">{{ weather.wind.speed }} km/h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
