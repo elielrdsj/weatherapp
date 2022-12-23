@@ -1,13 +1,15 @@
-import { WeatherData } from './models/weather-model';
-import { WeatherService } from './services/weather-service.service';
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { observable } from 'rxjs';
+import { WeatherData } from 'src/app/models/weather-model';
+import { WeatherService } from 'src/app/services/weather-service.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-weather-component',
+  templateUrl: './weather-component.component.html',
+  styleUrls: ['./weather-component.component.css']
 })
-export class AppComponent implements OnInit {
+export class WeatherComponentComponent {
   constructor(private weatherService: WeatherService) {}
   cities: string[] = ['Caruaru', 'Recife', 'London', 'Tokyo', 'Curitiba'];
   weatherData?: WeatherData[] = [];
@@ -51,3 +53,4 @@ export class AppComponent implements OnInit {
     }
   }
 }
+
